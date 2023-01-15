@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title></title>
+      <style type="text/css" media="all">
+         .siswa ul {
+            border: 1px solid #000;
+         }
+      </style>
+   </head>
+   <body>
+      <div></div>
+      <div></div>
+      <div></div>
+      <script type="text/javascript" charset="utf-8">
+         
+         // looping
+         const siswa = [
+               {
+                  nama : "Hilman Apriadi",
+                  email : "hilman@gmail.com"
+               },
+               {
+                  nama : "Apriadi Hilman",
+                  email : "apriadi@gmail.com"
+               },
+               {
+                  nama : "Jhon Doe",
+                  email : "jhon@gmail.com"
+               }
+            ]
+         const el = 
+         `${siswa.map(s => 
+         `<ul>
+            <li>${s.nama}</li>
+            <li>${s.email}</li>
+         </ul>`).join("")}`;
+         const listData = document.body.children[0];
+         listData.innerHTML = el;
+         
+         // ternary
+         const lagu = {
+            judul : "Shelter",
+            penyanyi : "Porter Robinson",
+            feat : "Madeon"
+         }
+         const el2 =
+            `<ul>
+               <li>${lagu.penyanyi}</li>
+               <li>${lagu.judul} ${lagu.feat ? `feat  (${lagu.feat})` : 'x'}</li>
+            </ul>`;
+         listData.nextElementSibling.innerHTML = el2;
+         
+         // nested
+         //HTLML fragment bersarang
+         const siswa1 = {
+            nama : "Hilman Apriadi",
+            kelas : "X-RPL 1",
+            mapel : [
+                  "PEMDAS",
+                  "SISKOM",
+                  "KJD",
+                  "DDG"
+               ]
+         }
+         
+         const mataPelajaran = listMapel => `
+            <ol>
+               ${listMapel.map(mp => `<li>${mp}</li>`).join('')}
+            </ol>`;
+         
+         const list = 
+            `<h2>${siswa1.nama}</h2>
+            <span>${siswa1.kelas}</span>
+            <h4>Mata Pelajaran</h4>
+            ${mataPelajaran(siswa1.mapel)}`
+            
+         document.body.children[2].innerHTML = list;
+         
+      </script>
+   </body>
+</html>

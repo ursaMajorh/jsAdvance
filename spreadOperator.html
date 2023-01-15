@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title></title>
+      <style type="text/css" media="all">
+         body {
+            background: violet;
+            text-align: center;
+         }
+         .huruf {
+            font-size: 80px;
+            font-family: Arial;
+            font-weight: bold;
+            color: #fff;
+         }
+         label {
+            display: inline-block;
+            transition: .3s;
+            cursor: pointer;
+         }
+         input {
+            display: none;
+         }
+         input:checked + label{
+            transform: rotate(20deg) scale(1.3);
+         }
+      </style>
+   </head>
+   <body>
+      <ul>
+         <li>Hilman Apriadi</li>
+         <li>Jhon Doe</li>
+      </ul>
+      <div class="huruf">HILMAN</div>
+      <script src="spreadOprator.js"></script>
+   </body>
+</html>

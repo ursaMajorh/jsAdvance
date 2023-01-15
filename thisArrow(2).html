@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title></title>
+      <style type="text/css" media="all">
+         div {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border: 2px solid #000;
+            transition: .3s width,
+                        .3s height,
+                        .3s background;
+         }
+         .caption {background: #000;}
+         .size {width: 180px; height: 80px;}
+      </style>
+   </head>
+   <body>
+      <div></div>
+      
+      <script type="text/javascript" charset="utf-8">
+         const box = document.querySelector('body div')
+         box.addEventListener("click", function() {
+         let satu = "size",
+             dua = "caption";
+         if(this.classList.contains(satu)) {
+            [satu, dua] = [dua, satu];
+         }
+            this.classList.toggle(satu);
+            
+            //menggunakan arrow function karena this akan
+            //mencari lexical scope 
+            //jika menggunakan function declaratiom, maka 
+            //this akan undefined, karena akan di hoisting
+            //ke luar
+            setTimeout(() => { 
+               this.classList.toggle(dua);
+            }, 600)
+         })
+      </script>
+   </body>
+</html>
